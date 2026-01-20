@@ -4,8 +4,7 @@ import jakarta.persistence.*;
 
 // Lombok to avoid writing getter/setter manually
 import lombok.*;
-
-import javax.management.relation.Role;
+import com.ecom.backend.entity.Role;
 
 @Entity
 @Table(name = "users")

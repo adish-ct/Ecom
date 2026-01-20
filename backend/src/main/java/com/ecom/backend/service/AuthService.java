@@ -1,5 +1,8 @@
 package com.ecom.backend.service;
 
+import com.ecom.backend.dto.LoginRequest;
+import com.ecom.backend.dto.RegisterRequest;
+import com.ecom.backend.entity.Role;
 import com.ecom.backend.entity.User;
 import com.ecom.backend.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -18,8 +21,8 @@ public class AuthService {
         User user = User.builder()
                 .name(request.getName())
                 .email(request.getEmail())
-                .password(request.getPassword())
-                .role(request.getRole())
+                .password(passwordEncoder.encode(request.getPassword()))
+                .role(Role.USER)
                 .build();
 
         userRepository.save(user);
